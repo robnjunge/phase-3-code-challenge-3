@@ -10,7 +10,6 @@ class Customer:
         self._reviews = []
         Customer.all_customers.append(self)
 
-
 #The given_name, family_name, and full_name methods are getter 
 # methods that return the corresponding attributes of a customer object.
     def given_name(self):
