@@ -74,7 +74,7 @@ class Restaurant:
 
 
 # Create customer and restaurant instances
-customer1 = Customer("Charlie", "Chaplin")
+customer1 = Customer("Judy", "Jones")
 customer2 = Customer("Scar", "Mkadinali")
 
 restaurant = Restaurant("KENYAN FRIED CHICKEN")
@@ -94,7 +94,6 @@ for review in all_reviews:
 # Get unique customers who reviewed the restaurant
 unique_customers = restaurant.customers()
 print(unique_customers)
-
 
 #The average_star_rating method of the restaurant object is 
 # called to calculate and print the average star rating of the restaurant based on the reviews.

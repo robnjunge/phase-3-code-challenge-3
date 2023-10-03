@@ -36,7 +36,6 @@ class Review:
     def rating(self):
         return self._rating
     
-#This method returns the customer object associated with the review.
     def customer(self):
         return self._customer
 
@@ -65,12 +64,12 @@ class Restaurant:
 customer = Customer("Morgan", "Jason")
 restaurant = Restaurant("The Kenyan Fried Chicken")
 # # Create customer instances
-# customer1 = Customer("Kevin", "Wamunyota")
+# customer1 = Customer("Ross", "Chambers")
 # customer2 = Customer("Ginelle", "Rose")
 
 
 # Create a review instance
-review = Review(customer, restaurant, 9.5)
+review = Review(customer, restaurant, 8.5)
 
 
 
