@@ -71,7 +71,7 @@ class Restaurant:
 
 
 # Create customer and restaurant instances
-customer1 = Customer("Charlie", "Chaplin")
+customer1 = Customer("Ross", "Galler")
 customer2 = Customer("Scar", "Mkadinali")
 
 restaurant = Restaurant("KENYAN FRIED CHICKEN")
