@@ -12,12 +12,10 @@ For our purposes, a `Restaurant` has many `Reviews`, a `Customer` has many `Revi
 
 ## Topics
 
-- Classes and Instances
+- SQLAlchemy Migrations
+- SQLAlchemy Relationships
 - Class and Instance Methods
-- Variable Scope
-- Object Relationships
-- lists and list Methods
-
+- SQLAlchemy Querying
 ## Instructions
 
 To get started, run `pipenv install` while inside of this directory.
@@ -34,84 +32,70 @@ Similarly, messy code that works is better than clean code that doesn't. First, 
 
 **Before you submit!** Save and run your code to verify that it works as you expect. If you have any methods that are not working yet, feel free to leave comments describing your progress.
 
+## Sample Schema:
+`restaurants` Table:
+| Column | Type    |
+| --------- | -------  |
+| name    | String   |
+| price     | Intege  |
+ 
+
+`customers` Table:
+|Column     | Type   |
+| ------------ | ------  |
+| first_name | String |
+| last_name  | String |
+
+
 ## Deliverables
 
 Write the following methods in the classes in the files provided. Feel free to build out any helper methods if needed.
 
-Some of the methods listed are provided to you in the starter code. You should check that they work correctly, and that you understand them.
-
-### Initializers, Readers, and Writers
-
-#### Customer
-
-- `Customer __init__()`
-  - Customer should be initialized with a given name and family name, both strings (i.e., first and last name, like George Washington)"
-- `Customer given_name()`
-  - returns the customer's given name
-  - should be able to change after the customer is created
-- `Customer family_name()`
-  - returns the customer's family name
-  - should be able to change after the customer is created
-- `Customer full_name()`
-  - returns the full name of the customer, with the given name and the family name concatenated, Western style.
-- `Customer all()`
-  - returns **all** of the customer instances
-
-#### Restaurant
-
-- `Restaurant __init__()`
-  - Restaurants should be initialized with a name, as a string
-- `Restaurant name()`
-  - returns the restaurant's name
-  - should not be able to change after the restaurant is created
-
-#### Review
-
-- `Review __init__()`
-  - Reviews should be initialized with a customer, restaurant, and a rating (a number)
-- `Review rating()`
-  - returns the rating for a restaurant.
-- `Review all()`
-  - returns all of the reviews
 
 ### Object Relationship Methods
 
 #### Review
 
 - `Review customer()`
-  - returns the customer object for that review
-  - Once a review is created, should not be able to change the customer
+  - should return the `Customer` instance for this review
 - `Review restaurant()`
-  - returns the restaurant object for that given review
-  - Once a review is created, should not be able to change the restaurant
+ - should return the `Restaurant` instance for this review
 
 #### Restaurant
 
 - `Restaurant reviews()`
-  - returns a list of all reviews for that restaurant
+  - returns a list of all reviews for the restaurant
 - `Restaurant customers()`
-  - Returns a **unique** list of all customers who have reviewed a particular restaurant.
-
+  
+  - returns a collection of all the customers who reviewed the `Restaurant`
 #### Customer
 
+- `Customer reviews()`
+  - should return a collection of all the reviews that the `Customer` has left
 - `Customer restaurants()`
-  - Returns a **unique** list of all restaurants a customer has reviewed
+  - should return a collection of all the restaurants that the `Customer` has reviewed
+
+
+### Aggregate and Relationship Methods
+# Customer
+- `Customer full_name()`
+  - returns the full name of the customer, with the first name and the last name concatenated Western style.
+- `Customer favorite_restaurant()`
+  - returns the restaurant instance that has the highest star rating from this customer
 - `Customer add_review(restaurant, rating)`
-  - given a **restaurant object** and a star rating (as an integer), creates a new review and associates it with that customer and restaurant.
-
-### Aggregate and Association Methods
-
-#### Customer
-
-- `Customer num_reviews()`
-  - Returns the total number of reviews that a customer has authored
-- `Customer find_by_name(name)` class method
-  - given a string of a **full name**, returns the **first customer** whose full name matches
-- `Customer find_all_by_given_name(name)` class method
-  - given a string of a given name, returns an **list** containing all customers with that given name
-
-#### Restaurant
-
-- `Restaurant average_star_rating()`
-  - returns the average star rating for a restaurant based on its reviews
-  - Reminder: you can calculate the average by adding up all the ratings and dividing by the number of ratings
+  - takes a `restaurant` (an instance of the `Restaurant` class) and a rating creates a new review for the restaurant with the given `restaurant_id`
+- `Customer delete_reviews(restaurant)`
+  - takes a `restaurant` (an instance of the `Restaurant` class) and removes **all** their reviews for this restaurant
+# Review
+- `Review full_review()`
+  - should return a string formatted as follows:
+        - Review for {insert restaurant name} by {insert customer's full name}: {insert review star_rating} stars.
+# Restaurant
+- `Restaurant fanciest(), this method should be a class method`
+  - returns _one_ restaurant instance for the restaurant that has the highest price
+- `Restaurant all_reviews()`
+  - should return a list of strings with all the reviews for this restaurant formatted as follows:
+-------------------------------------------------------------------------------------------------------------------------
+  "Review for {insert restaurant name} by {insert customer's full name}: {insert review star_rating} stars.",
+  "Review for {insert restaurant name} by {insert customer's full name}: {insert review star_rating} stars.",
+]
