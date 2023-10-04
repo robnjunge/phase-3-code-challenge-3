@@ -1,3 +1,5 @@
+from database import session, User 
+
 class Customer:
     def __init__(self, given_name, family_name):
         self._given_name = given_name
