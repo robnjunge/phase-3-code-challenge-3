@@ -1,14 +1,9 @@
-from database import session, User 
-
 class Customer:
     def __init__(self, given_name, family_name):
         self._given_name = given_name
         self._family_name = family_name
 
 
-#The given_name, family_name, and full_name methods are defined.
-# They are getter methods
-# that return the corresponding attributes of a customer object.
     def given_name(self):
         return self._given_name
 
@@ -76,7 +71,7 @@ class Restaurant:
 
 
 # Create customer and restaurant instances
-customer1 = Customer("Judy", "Jones")
+customer1 = Customer("Charlie", "Chaplin")
 customer2 = Customer("Scar", "Mkadinali")
 
 restaurant = Restaurant("KENYAN FRIED CHICKEN")
@@ -96,6 +91,7 @@ for review in all_reviews:
 # Get unique customers who reviewed the restaurant
 unique_customers = restaurant.customers()
 print(unique_customers)
+
 
 #The average_star_rating method of the restaurant object is 
 # called to calculate and print the average star rating of the restaurant based on the reviews.

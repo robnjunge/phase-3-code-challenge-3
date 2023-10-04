@@ -1,4 +1,4 @@
-# phase-3-code-challenge-3 Object Relations Code Challenge - Restaurants
+# phase-3-code-challenge-3 SQLAlchemy Code Challenge Restaurants
 
 For this assignment, we'll be working with a Yelp-style domain.
 

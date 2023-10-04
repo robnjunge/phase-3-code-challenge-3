@@ -1,8 +1,6 @@
 class Customer:
     all_customers = []
     
-#It also creates an empty _reviews list for the customer 
-# and adds the customer instance to the all_customers list.
 
     def __init__(self, given_name, family_name):
         self._given_name = given_name
@@ -10,8 +8,8 @@ class Customer:
         self._reviews = []
         Customer.all_customers.append(self)
 
-#The given_name, family_name, and full_name methods are getter 
-# methods that return the corresponding attributes of a customer object.
+
+
     def given_name(self):
         return self._given_name
 
@@ -25,8 +23,6 @@ class Customer:
         return len(self._reviews)
 
 
-#The find_by_name class method takes a name parameter and searches 
-# for a customer with a matching full name in the all_customers list. If found, it returns the customer object; otherwise, it returns None.
     @classmethod
     def find_by_name(cls, name):
         for customer in cls.all_customers:
